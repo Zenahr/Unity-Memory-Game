@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OldLevel.unity
     guid: 7cd94190b68d2ab4197a8694c2dd3ab0
   m_configObjects: {}
