@@ -8,7 +8,7 @@ public class Card : MonoBehaviour
     public static bool DO_NOT = false;
 
     [SerializeField]
-    private int _state;
+    private enum State { start, end };
     [SerializeField]
     private int _cardValue;
     [SerializeField]
@@ -16,12 +16,13 @@ public class Card : MonoBehaviour
 
     private Sprite _cardBack;
     private Sprite _cardFace;
-
+    
     private GameObject _manager;
+    private State _state;
 
     private void Start()
     {
-        _state = 1;
+        _state = State.start;
         _manager = GameObject.FindGameObjectWithTag("Manager");
     }
 
@@ -34,13 +35,15 @@ public class Card : MonoBehaviour
 
     public void flipCard()
     {
-        if (_state == 0)
-            _state = 1;
+        if (_state == State.start)
+            _state = State.end;
         else
-            _state = 0;
-        if (_state == 0 && !DO_NOT)
+            _state = State.start;
+
+        if (_state == State.end && !DO_NOT)
             GetComponent<Image>().sprite = _cardBack;
-        else if (_state == 1 && !DO_NOT)
+
+        else if (_state == State.start && !DO_NOT)
             GetComponent<Image>().sprite = _cardFace;
     }
 
@@ -50,12 +53,7 @@ public class Card : MonoBehaviour
         set { _cardValue = value; }
 
     }
-    public int state
-    {
-        get => _state;
-        set { _state = value; }
-    }
-
+    
     public bool initialized
     {
         get => _initialized;
@@ -70,9 +68,9 @@ public class Card : MonoBehaviour
     IEnumerator pause()
     {
         yield return new WaitForSeconds(1);
-        if (_state == 0)
+        if (_state == State.end)
             GetComponent<Image>().sprite = _cardBack;
-        else if (_state == 1)
+        else if (_state == State.start)
             GetComponent<Image>().sprite = _cardFace;
         DO_NOT = false;
     }
