@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level.unity
     guid: 0262a675c90a20e4bba437cdec3d5a16
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/LevelBackup.unity
-    guid: 348441061c847434fb4f8fe827dbdd1b
+    path: Assets/Scenes/OldLevel.unity
+    guid: 7cd94190b68d2ab4197a8694c2dd3ab0
   m_configObjects: {}

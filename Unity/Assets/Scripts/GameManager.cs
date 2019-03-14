@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public Text matchText;
 
     private bool _init = false;
-    private int _matches = 13;
+    private int _matches = 0;
 
 
     // Update is called once per frame
@@ -29,12 +29,15 @@ public class GameManager : MonoBehaviour
 
     void initializeCards()
     {
+        Debug.Log("initializingCards() has been called");
+        Debug.Log("cards size " + cards.Length);
         for (int id = 0; id < 2; id++)
         {
 
 
-            for (int i = 1; i < 14; i++)
+            for (int i = 1; i <= (cards.Length/2); i++)
             {
+                
                 bool test = false;
                 int choice = 0;
                 while (!test)
@@ -81,7 +84,7 @@ public class GameManager : MonoBehaviour
         if(cards[c[0]].GetComponent<Card>().cardValue == cards[c[1]].GetComponent<Card>().cardValue)
         {
             x = 2;
-            _matches--;
+            _matches++;
             matchText.text = "Number of Matches; " + _matches;
             if (_matches == 0)
                 SceneManager.LoadScene("Menu");
