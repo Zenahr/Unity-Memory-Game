@@ -93,8 +93,8 @@ public class GameManager : MonoBehaviour
             matchText.text = "Number of Matches; " + _matches;
 
             //making the found cards non-interactive
-            cards[c[0]].SetActive(false);
-            cards[c[1]].SetActive(false);
+            //cards[c[0]].SetActive(false);
+            //cards[c[1]].SetActive(false);
             // Making the found cards invisible
             cards[c[0]].transform.localScale = new Vector3(0, 0, 0);
             cards[c[1]].transform.localScale = new Vector3(0, 0, 0);

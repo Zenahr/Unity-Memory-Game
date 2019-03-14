@@ -5,7 +5,15 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
+
+
     public static bool DO_NOT = false;
+
+    private enum State
+    {
+        FrontSide,
+        BackSide
+    }
 
     [SerializeField]
     private int _state;
