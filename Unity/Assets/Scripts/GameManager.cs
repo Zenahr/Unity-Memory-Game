@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
             checkCards();
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+
     }
 
     void initializeCards()
