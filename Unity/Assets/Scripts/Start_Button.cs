@@ -8,6 +8,6 @@ public class Start_Button : MonoBehaviour
     // Start is called before the first frame update
    public void OnClick()
     {
-        SceneManager.LoadScene("OldLevel");
+        SceneManager.LoadScene("Level");
     }
 }
